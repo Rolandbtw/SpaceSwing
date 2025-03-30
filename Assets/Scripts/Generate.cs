@@ -140,12 +140,15 @@ public class Generate : MonoBehaviour
             float offsetX = UnityEngine.Random.Range(0f, 500f);
             float offsetY = UnityEngine.Random.Range(0f, 500f);
             int noiseSize = terrén.terrainData.heightmapResolution;
+            Debug.Log(noiseSize);
             int scale = 2;
             float[,] heightmap = new float[noiseSize, noiseSize];
             for (int x = 0; x < noiseSize; x++)
             {
                 for (int y = 0; y < noiseSize; y++)
                 {
+                    Debug.Log(x / scale + offsetX);
+                    Debug.Log(y / scale + offsetY);
                     heightmap[x, y] += Mathf.PerlinNoise(x / scale + offsetX,y / scale + offsetY);
                 }
             }
